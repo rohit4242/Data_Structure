@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #define MAX 5
 
 int stack_arr[MAX];
@@ -6,7 +7,7 @@ int top = -1;
 
 void push(int data){
   if(top == MAX-1){
-    printf("Stack is full");
+    printf("Stack is full\n");
     return;
   }
   top++;
@@ -16,7 +17,7 @@ void push(int data){
 int pop(){
   int value;
   if(top == -1){
-    printf("stack is empty");
+    printf("stack is empty\n");
     exit(1);
   }
   value = stack_arr[top];
@@ -26,17 +27,18 @@ int pop(){
 
 int peek(){
   if(top == -1){
-    printf("stack is empty");
+    printf("stack is empty\n");
     exit(1);
   }
   return stack_arr[top];
 }
 
-void print(){
+void display(){
     int i;
-    if(top == -1)
-        printf("stack is empty");
+    if(top == -1){
+        printf("stack is empty\n");
         return;
+    }
 
     for(i=top; i>=0; i--){
         printf("%d ",stack_arr[i]);
@@ -49,12 +51,13 @@ int main(){
 
     while(1)
     {
-
+        printf("==============\n");
         printf("1.push\n");
         printf("2.pop\n");
         printf("3.peek\n");
         printf("4.print\n");
         printf("5.exit\n");
+        printf("==============\n");
 
         printf("Enter your choice:\n");
         scanf("%d",&choice);
@@ -73,7 +76,7 @@ int main(){
             printf("Your top most data is: %d\n",peek());
             break;
         case 4:
-            print();
+            display();
             break;
         case 5:
             exit(0);
