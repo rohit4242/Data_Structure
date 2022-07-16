@@ -25,7 +25,7 @@ int pop(){
   return value;
 }
 
-int peek(){
+int peep(){
   if(top == -1){
     printf("stack is empty\n");
     exit(1);
@@ -73,7 +73,7 @@ int main(){
             printf("Your data is: %d\n",pop());
             break;
         case 3:
-            printf("Your top most data is: %d\n",peek());
+            printf("Your top most data is: %d\n",peep());
             break;
         case 4:
             display();
