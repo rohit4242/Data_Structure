@@ -5,8 +5,10 @@
 int stack_arr[MAX];
 int top = -1;
 
-void push(int data){
-  if(top == MAX-1){
+void push(int data)
+{
+  if (top == MAX - 1)
+  {
     printf("Stack is full\n");
     return;
   }
@@ -14,9 +16,11 @@ void push(int data){
   stack_arr[top] = data;
 }
 
-int pop(){
+int pop()
+{
   int value;
-  if(top == -1){
+  if (top == -1)
+  {
     printf("stack is empty\n");
     exit(1);
   }
@@ -25,66 +29,91 @@ int pop(){
   return value;
 }
 
-int peep(){
-  if(top == -1){
+int peep()
+{
+  if (top == -1)
+  {
     printf("stack is empty\n");
     exit(1);
   }
   return stack_arr[top];
 }
 
-void display(){
-    int i;
-    if(top == -1){
-        printf("stack is empty\n");
-        return;
-    }
+void update()
+{
+  int index,value;
+  printf("Enter the value to be updated\n");
+  scanf("%d",&index);
 
-    for(i=top; i>=0; i--){
-        printf("%d ",stack_arr[i]);
-    }
-    printf("\n");
+  printf("Enter the new value\n");
+  scanf("%d",&value);
+
+  if(top-index+1<=-1){
+    printf("stack is empty\n");
+  }
+
+  stack_arr[top-index+1] = value;
+  printf("your value is updated\n");
 }
 
-int main(){
-    int choice, data;
+void display()
+{
+  int i;
+  if (top == -1)
+  {
+    printf("stack is empty\n");
+    return;
+  }
+  printf("==============\n");
+  for (i = top; i >= 0; i--)
+  {
+    printf("%d ", stack_arr[i]);
+  }
+  printf("\n");
+}
 
-    while(1)
+int main()
+{
+  int choice, data;
+
+  while (1)
+  {
+    printf("==============\n");
+    printf("1.push\n");
+    printf("2.pop\n");
+    printf("3.peek\n");
+    printf("4.update\n");
+    printf("5.print\n");
+    printf("6.exit\n");
+    printf("==============\n");
+
+    printf("Enter your choice:\n");
+    scanf("%d", &choice);
+
+    switch (choice)
     {
-        printf("==============\n");
-        printf("1.push\n");
-        printf("2.pop\n");
-        printf("3.peek\n");
-        printf("4.print\n");
-        printf("5.exit\n");
-        printf("==============\n");
-
-        printf("Enter your choice:\n");
-        scanf("%d",&choice);
-
-        switch(choice)
-        {
-        case 1:
-            printf("Enter your data:\n");
-            scanf("%d",&data);
-            push(data);
-            break;
-        case 2:
-            printf("Your data is: %d\n",pop());
-            break;
-        case 3:
-            printf("Your top most data is: %d\n",peep());
-            break;
-        case 4:
-            display();
-            break;
-        case 5:
-            exit(0);
-
-        default:
-            printf("Invalid Choice \n");
-
-        }
+    case 1:
+      printf("Enter your data:\n");
+      scanf("%d", &data);
+      push(data);
+      break;
+    case 2:
+      printf("Deleted date is: %d\n", pop());
+      break;
+    case 3:
+      printf("Your top most data is: %d\n", peep());
+      break;
+    case 4:
+      update();
+      break;
+    case 5:
+      display();
+      break;
+    case 6:
+      exit(0);
+    default:
+      printf("Invalid Choice \n");
     }
-    return 0;
+  }
+  return 0;
 }
