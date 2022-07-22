@@ -39,20 +39,9 @@ int peep()
   return stack_arr[top];
 }
 
-void update()
+void update(int value)
 {
-  int index,value;
-  printf("Enter the value to be updated\n");
-  scanf("%d",&index);
-
-  printf("Enter the new value\n");
-  scanf("%d",&value);
-
-  if(top-index+1<=-1){
-    printf("stack is empty\n");
-  }
-
-  stack_arr[top-index+1] = value;
+  stack_arr[top] = value;
   printf("your value is updated\n");
 }
 
@@ -74,7 +63,7 @@ void display()
 
 int main()
 {
-  int choice, data;
+  int choice, data, index, value;
 
   while (1)
   {
@@ -104,7 +93,9 @@ int main()
       printf("Your top most data is: %d\n", peep());
       break;
     case 4:
-      update();
+      printf("Enter the new value\n");
+      scanf("%d",&value);
+      update(value);
       break;
     case 5:
       display();
