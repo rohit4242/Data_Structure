@@ -61,6 +61,18 @@ void display()
   printf("\n");
 }
 
+void fact()
+{
+    int i,n;
+    printf("\nEnter an number: ");
+    scanf("%d",&n);
+    
+    for(i=2;i<=n;++i){
+        push(peep() * i);
+    }
+    printf("Factorial: %d\n", peep());
+}
+
 int main()
 {
   int choice, data, index, value;
@@ -73,7 +85,8 @@ int main()
     printf("3.peek\n");
     printf("4.update\n");
     printf("5.print\n");
-    printf("6.exit\n");
+    printf("6.print factorials\n");
+    printf("7.exit\n");
     printf("==============\n");
 
     printf("Enter your choice:\n");
@@ -101,6 +114,9 @@ int main()
       display();
       break;
     case 6:
+      fact();
+      break;
+    case 7:
       exit(0);
     default:
       printf("Invalid Choice \n");
