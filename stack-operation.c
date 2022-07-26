@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define MAX 5
+#define MAX 100
 
 int stack_arr[MAX];
 int top = -1;
@@ -63,14 +63,14 @@ void display()
 
 void fact()
 {
-    int i,n;
-    printf("\nEnter an number: ");
-    scanf("%d",&n);
-    
-    for(i=2;i<=n;++i){
-        push(peep() * i);
-    }
-    printf("Factorial: %d\n", peep());
+    int factorial = 1;
+   	while(top != -1)
+	{
+		factorial *= stack_arr[top];
+		top--;
+	}
+	printf("%d\n", factorial);
+
 }
 
 int main()
