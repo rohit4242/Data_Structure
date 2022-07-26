@@ -61,7 +61,7 @@ void display()
   printf("\n");
 }
 
-void fact()
+void fact1()
 {
     int factorial = 1;
    	while(top != -1)
@@ -70,6 +70,26 @@ void fact()
 		top--;
 	}
 	printf("%d\n", factorial);
+
+}
+
+void fact2()
+{
+    int n,i, fact=1;
+    printf("Enter your number to calculate:\n");
+	scanf("%d",&n);
+
+	for(i=1;i<=n;i++)
+	{
+		push(i);
+	}
+
+	for(i=1;i<=n;i++)
+	{
+		fact=(long)fact*pop();
+	}
+	
+	printf("\nFactorial of %d = %ld\n",n,fact);
 
 }
 
@@ -85,8 +105,9 @@ int main()
     printf("3.peek\n");
     printf("4.update\n");
     printf("5.print\n");
-    printf("6.print factorials\n");
-    printf("7.exit\n");
+    printf("6.print factorials 1\n");
+    printf("7.print factorials 2\n");
+    printf("8,exit\n");
     printf("==============\n");
 
     printf("Enter your choice:\n");
@@ -114,9 +135,12 @@ int main()
       display();
       break;
     case 6:
-      fact();
+      fact1();
       break;
     case 7:
+      fact2();
+      break;
+    case 8:
       exit(0);
     default:
       printf("Invalid Choice \n");
