@@ -1,154 +1,39 @@
-#include <stdio.h>
-#include <stdlib.h>
-#define MAX 100
-
-int stack_arr[MAX];
-int top = -1;
-
-void push(int data)
-{
-  if (top == MAX - 1)
-  {
-    printf("Stack is full\n");
-    return;
-  }
-  top++;
-  stack_arr[top] = data;
-}
-
-int pop()
-{
-  int value;
-  if (top == -1)
-  {
-    printf("stack is empty\n");
-    exit(1);
-  }
-  value = stack_arr[top];
-  top--;
-  return value;
-}
-
-int peep()
-{
-  if (top == -1)
-  {
-    printf("stack is empty\n");
-    exit(1);
-  }
-  return stack_arr[top];
-}
-
-void update(int value)
-{
-  stack_arr[top] = value;
-  printf("your value is updated\n");
-}
-
-void display()
-{
-  int i;
-  if (top == -1)
-  {
-    printf("stack is empty\n");
-    return;
-  }
-  printf("==============\n");
-  for (i = top; i >= 0; i--)
-  {
-    printf("%d ", stack_arr[i]);
-  }
-  printf("\n");
-}
-
-void fact1()
-{
-  int fact=1,num;
-  printf("\nEnter Your Number: ");
-  scanf("%d",&num);
-
-  while(num!=0)
-  {
-    push(fact*=num);
-    num--;
-  }
-
-  printf("\nYour factorial is: %d",peep());
-}
-
-void fact2()
-{
-    int n,i, fact=1;
-    printf("Enter your number to calculate:\n");
-	scanf("%d",&n);
-
-	for(i=1;i<=n;i++)
-	{
-		push(i);
-	}
-
-	for(i=1;i<=n;i++)
-	{
-		fact=(long)fact*pop();
-	}
-	
-	printf("\nFactorial of %d = %ld\n",n,fact);
-
-}
-
-int main()
-{
-  int choice, data, index, value;
-
-  while (1)
-  {
-    printf("==============\n");
-    printf("1.push\n");
-    printf("2.pop\n");
-    printf("3.peek\n");
-    printf("4.update\n");
-    printf("5.print\n");
-    printf("6.print factorials 1\n");
-    printf("7.print factorials 2\n");
-    printf("8,exit\n");
-    printf("==============\n");
-
-    printf("Enter your choice:\n");
-    scanf("%d", &choice);
-
-    switch (choice)
-    {
-    case 1:
-      printf("Enter your data:\n");
-      scanf("%d", &data);
-      push(data);
-      break;
-    case 2:
-      printf("Deleted date is: %d\n", pop());
-      break;
-    case 3:
-      printf("Your top most data is: %d\n", peep());
-      break;
-    case 4:
-      printf("Enter the new value\n");
-      scanf("%d",&value);
-      update(value);
-      break;
-    case 5:
-      display();
-      break;
-    case 6:
-      fact1();
-      break;
-    case 7:
-      fact2();
-      break;
-    case 8:
-      exit(0);
-    default:
-      printf("Invalid Choice \n");
-    }
-  }
+#include <stdio.h>  
+#include <string.h>  
   
-  return 0;
-}
+#define max 100  
+int top = -1;
+int stack[max];  
+  
+void push(char x){  
+  
+  if(top == max-1){  
+      printf("stack overflow");  
+    }  else {  
+      stack[++top]=x;  
+    }  
+  
+}  
+  
+void pop()
+{   if(top == -1)
+        printf("stack is empty");
+        
+    printf("%c",stack[top--]);  
+}  
+  
+  
+void main()  
+{  
+   char str[50];
+   printf("Enter Your String: ");
+   gets(str);
+   int len = strlen(str);  
+   int i;  
+  
+   for(i=0;i<len;i++)  
+        push(str[i]);  
+  
+   for(i=0;i<len;i++)  
+      pop();  
+}  

@@ -4,6 +4,7 @@
 
 int stack_arr[MAX];
 int top = -1;
+char str_stack[MAX];
 
 void push(int data)
 {
@@ -96,9 +97,21 @@ void fact2()
 
 }
 
+void reverse_string(char s)
+{
+  char str[10];
+  int i=0;
+
+  while(str[i]=!'\0')
+  {
+    
+  }
+}
+
 int main()
 {
   int choice, data, index, value;
+  char str;
 
   while (1)
   {
@@ -110,7 +123,8 @@ int main()
     printf("5.print\n");
     printf("6.print factorials 1\n");
     printf("7.print factorials 2\n");
-    printf("8,exit\n");
+    printf("8.revers string\n");
+    printf("9,exit\n");
     printf("==============\n");
 
     printf("Enter your choice:\n");
@@ -143,6 +157,10 @@ int main()
     case 7:
       fact2();
       break;
+    case 8:
+          printf("Enter any string: ");
+          gets(str);
+          reverse_string(str);
     case 8:
       exit(0);
     default:
