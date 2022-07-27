@@ -1,16 +1,16 @@
 #include <stdio.h>  
 #include <string.h>  
-  
 #define max 100  
+
 int top = -1;
-int stack[max];  
+int str_stack[max];  
   
 void push(char x){  
   
   if(top == max-1){  
       printf("stack overflow");  
     }  else {  
-      stack[++top]=x;  
+      str_stack[++top]=x;  
     }  
   
 }  
@@ -19,7 +19,7 @@ void pop()
 {   if(top == -1)
         printf("stack is empty");
         
-    printf("%c",stack[top--]);  
+    printf("%c",str_stack[top--]);  
 }  
   
   
@@ -28,11 +28,11 @@ void main()
    char str[50];
    printf("Enter Your String: ");
    gets(str);
-   int len = strlen(str);  
-   int i;  
+   int len = strlen(str),i;  
+
   
    for(i=0;i<len;i++)  
-        push(str[i]);  
+      push(str[i]);  
   
    for(i=0;i<len;i++)  
       pop();  
