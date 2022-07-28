@@ -64,47 +64,45 @@ void display()
 
 void fact1()
 {
-  int fact=1,num;
+  int fact = 1, num;
   printf("\nEnter Your Number: ");
-  scanf("%d",&num);
+  scanf("%d", &num);
 
-  while(num!=0)
+  while (num != 0)
   {
-    push(fact*=num);
+    push(fact *= num);
     num--;
   }
 
-  printf("\nYour factorial is: %d",peep());
+  printf("\nYour factorial is: %d", peep());
 }
 
 void fact2()
 {
-    int n,i, fact=1;
-    printf("Enter your number to calculate:\n");
-	scanf("%d",&n);
+  int n, i, fact = 1;
+  printf("Enter your number to calculate:\n");
+  scanf("%d", &n);
 
-	for(i=1;i<=n;i++)
-	{
-		push(i);
-	}
+  for (i = 1; i <= n; i++)
+  {
+    push(i);
+  }
 
-	for(i=1;i<=n;i++)
-	{
-		fact=(long)fact*pop();
-	}
-	
-	printf("\nFactorial of %d = %ld\n",n,fact);
+  for (i = 1; i <= n; i++)
+  {
+    fact = (long)fact * pop();
+  }
 
+  printf("\nFactorial of %d = %ld\n", n, fact);
 }
 
 void reverse_string(char s)
 {
   char str[10];
-  int i=0;
+  int i = 0;
 
-  while(str[i]=!'\0')
+  while (str[i] = !'\0')
   {
-    
   }
 }
 
@@ -145,7 +143,7 @@ int main()
       break;
     case 4:
       printf("Enter the new value\n");
-      scanf("%d",&value);
+      scanf("%d", &value);
       update(value);
       break;
     case 5:
@@ -158,15 +156,16 @@ int main()
       fact2();
       break;
     case 8:
-          printf("Enter any string: ");
-          gets(str);
-          reverse_string(str);
-    case 8:
+      printf("Enter any string: ");
+      gets(str);
+      reverse_string(str);
+      break;
+    case 9:
       exit(0);
     default:
       printf("Invalid Choice \n");
     }
   }
-  
+
   return 0;
 }
