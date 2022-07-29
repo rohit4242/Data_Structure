@@ -42,8 +42,17 @@ int peep()
 
 void update(int value)
 {
-  stack_arr[top] = value;
+  int i,value;
+  printf("Enter your index: ");
+  scanf("%d",&i);
+  if (top-i+1 < 0)
+  {
+    printf("stack is empty\n");
+    exit(1);
+  }
+  stack_arr[top-i+1] = value;
   printf("your value is updated\n");
+
 }
 
 void display()
