@@ -4,43 +4,43 @@
 
 int stackA[MAX];
 char stackB[MAX];
-int top = -1;
-int temp = -1;
+int top_1 = -1;
+int top_2 = -1;
 
 void push_into_A(int data)
 {
-    if (top == MAX - 1)
+    if (top_1 == MAX - 1)
     {
         printf("Stack is full\n");
         return;
     }
-    top++;
-    stackA[top] = data;
+    top_1++;
+    stackA[top_1] = data;
 }
 
 int pop_from_A()
 {
     int value;
-    if (top == -1)
+    if (top_1 == -1)
     {
         printf("stack is empty\n");
         exit(1);
     }
-    value = stackA[top];
-    top--;
+    value = stackA[top_1];
+    top_1--;
     return value;
 }
 
 void display_A()
 {
     int i;
-    if (top == -1)
+    if (top_1 == -1)
     {
         printf("stack is empty\n");
         return;
     }
     printf("==============\n");
-    for (i = top; i >= 0; i--)
+    for (i = top_1; i >= 0; i--)
     {
         printf("%d ", stackA[i]);
     }
@@ -49,13 +49,13 @@ void display_A()
 void display_B()
 {
     int i;
-    if (top == -1)
+    if (top_2 == -1)
     {
         printf("stack is empty\n");
         return;
     }
     printf("==============\n");
-    for (i = top; i >= 0; i--)
+    for (i = top_2; i >= 0; i--)
     {
         printf("%d ", stackB[i]);
     }
@@ -64,10 +64,10 @@ void display_B()
 
 void copy_A_to_B()
 {
-    for (int i = top; i >= 0; i--)
+    for (int i = top_1; i >= 0; i--)
     {
-        temp++;
-        stackB[temp] = pop();
+        top_2++;
+        stackB[top_2] = pop_from_A();
 
     }
     printf("copy succesfull\n");
@@ -96,7 +96,7 @@ int main()
         case 1:
             printf("Enter your data:\n");
             scanf("%d", &data);
-            push(data);
+            push_into_A(data);
             break;
         case 2:
             copy_A_to_B();
