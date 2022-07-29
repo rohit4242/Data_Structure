@@ -39,7 +39,7 @@ void display_A()
         printf("stack is empty\n");
         return;
     }
-    printf("==============\n");
+    printf("=======stack A=======\n");
     for (i = top_1; i >= 0; i--)
     {
         printf("%d ", stackA[i]);
@@ -54,7 +54,7 @@ void display_B()
         printf("stack is empty\n");
         return;
     }
-    printf("==============\n");
+    printf("=======stack B=======\n");
     for (i = top_2; i >= 0; i--)
     {
         printf("%d ", stackB[i]);
