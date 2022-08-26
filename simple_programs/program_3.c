@@ -1,21 +1,19 @@
 #include <stdio.h>
 void main()
 {
-    int num, temp, sum=0, i=1;
+    int num,x,mul=1, sum=0;
 
     printf("Enter a number\n");
     scanf("%d", &num);
 
-    while (i<num)
+    while (num>0)
     {
-        temp = num%i;
-        if (temp == 0)
-        {
-            sum = sum + i;
-        }
-        i++;
+        x = num%10;
+        sum = sum+x;
+        mul = mul*x;
+        num = num/10;
     }
-    if(sum == num)
+    if(sum == mul)
     {
         printf("perfect");
     }
