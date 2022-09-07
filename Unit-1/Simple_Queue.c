@@ -90,8 +90,9 @@ void displayEvenNumber(){
 void main()
 {
     int ch, data,index,value;
-    while (1)
-    {
+    clrscr();
+    do{
+    clrscr();
 	printf("\n=================");
 	printf("\n1.Add new value");
 	printf("\n2.Delete Value");
@@ -131,11 +132,9 @@ void main()
 	 case 6:
 	    displayEvenNumber();
 	    break;
-	 case 7:
-	    exit(1);
 	default:
 	    printf("Invalid Input");
 	}
-    }
-    getch();
+	getch();
+    } while(ch!=7);
 }
