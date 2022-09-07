@@ -132,8 +132,6 @@ void main()
 	 case 6:
 	    displayEvenNumber();
 	    break;
-	default:
-	    printf("Invalid Input");
 	}
 	getch();
     } while(ch!=7);
