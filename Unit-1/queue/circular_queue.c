@@ -6,7 +6,6 @@ int queue[max];
 int front = -1;
 int rear = -1;
 
-
 void add_value(data){
     if(front==0 && rear == max-1){
 	    printf("\nYour queue is full");
@@ -24,13 +23,11 @@ void add_value(data){
         rear = rear+1;
     queue[rear] = data;
     printf("\nYour data is Inserted");
-    
-    
 }
-void delete(){
 
+void delete(){
     if(front == -1 || front > rear){
-	printf("\nYour queue is empty");
+	    printf("\nYour queue is empty");
     }
     printf("\n%d is deleted",queue[front]);
     front++;
@@ -40,14 +37,14 @@ void display(){
     int i;
     if(front == -1)
     {
-	printf("\nYour queue is empty");
+	    printf("\nYour queue is empty");
     }
     for(i=front;i<=rear;i++)
     {
-	printf("\n%d",queue[i]);
+	    printf("\n%d",queue[i]);
     }
-
 }
+
 void main()
 {
     int ch, data;
@@ -77,6 +74,5 @@ void main()
 	    display();
 	    break;
 	}
-
     } while(ch!=4);
 }
